@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Gwendolyn:wght@400;700&family=M+PLUS+Rounded+1c&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@700&family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+NL:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="main-container">
+       <div>
+        <div class="header"><p id="message">For u Babii</p></div>
+        <div class="container-content" >
+            
+            <img src="/images/sunflower.gif" alt="" class="flower" id="flower-image">
+           
+        </div>
+        <div class="button-container" id="buttonContainer">
+            <button onclick="handleClick('showButtons')">CLICK ME</button>
+        </div>
+       </div>
+       
+    
+       <script>
+        function handleClick(action) {
+            let buttonContainer = document.getElementById("buttonContainer");
+            let flower = document.getElementById("flower-image");
+            let message = document.getElementById("message");
+           
+    
+            if (action === "showButtons") {
+                // Replace "CLICK ME" button with "Yes" and "No" buttons
+                buttonContainer.innerHTML = `
+                    <button onclick="yesButton()">Yes</button>
+                    <button id="noButton" onmouseover="moveNoButton()">No</button>
+                `;
+            
+                // Change the image
+                flower.src = "/images/crying.gif"; // Change this to your new image
+                message.innerText = "Can I have A Kiss?"
+            } 
+        }
+
+        function moveNoButton() {
+            let noButton = document.getElementById("noButton");
+            let maxX = window.innerWidth - 100; // Prevent button from going off-screen
+            let maxY = window.innerHeight - 50;
+            
+            let randomX = Math.random() * maxX;
+            let randomY = Math.random() * maxY;
+    
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+
+        function yesButton(){
+            let buttonContainer = document.getElementById("buttonContainer");
+            let message = document.getElementById("message");
+            let flower = document.getElementById("flower-image");
+
+            flower.src = "images/weeeeee.gif";
+            message.innerText = "Yeeeeeeyy! "
+            buttonContainer.remove();
+        }
+
+       </script>
+    </div>
+</body>
+</html>
